@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Andrea Hernandez - Dermatología Cosmética Especializada",
+  title: "Andrea Hernandez Zdravcoff - Dermatología Cosmética Especializada",
   description:
     "Tratamientos dermatológicos personalizados con tecnología de vanguardia. Cuida tu piel con la mejor atención profesional.",
 };
@@ -37,7 +37,7 @@ export default function RootLayout({
               <div className="grid md:grid-cols-3 gap-8 mb-8">
                 <div>
                   <h3 className="text-xl font-light mb-4 text-[#a0826d]">
-                    Andrea Hernandez
+                    Andrea Hernandez Zdravcoff
                   </h3>
                   <p className="text-sm opacity-70 leading-relaxed">
                     Dermatología cosmética especializada con tecnología de
@@ -104,8 +104,8 @@ export default function RootLayout({
               </div>
               <div className="border-t border-white/10 pt-6 text-center">
                 <p className="text-sm opacity-60">
-                  Echo por Marz Software&copy; con ❤️ para Andrea Hernandez. Te
-                  amo Ma! · {new Date().getFullYear()}
+                  Echo por Marz Software&copy; con ❤️ para Andrea Hernandez
+                  Zdravcoff. Te amo Ma! · {new Date().getFullYear()}
                 </p>
               </div>
             </div>

@@ -1,43 +1,57 @@
 "use client";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import {
+  FaStar,
+  FaGem,
+  FaSpa,
+  FaFire,
+  FaSyringe,
+  FaBolt,
+} from "react-icons/fa";
 
 const servicios = [
   {
     id: 1,
     titulo: "Tratamientos Faciales",
-    descripcion: "Tratamientos personalizados para rejuvenecer y revitalizar tu piel con tecnología de última generación.",
-    icon: "✨",
+    descripcion:
+      "Tratamientos personalizados para rejuvenecer y revitalizar tu piel con tecnología de última generación.",
+    icon: FaStar,
   },
   {
     id: 2,
     titulo: "Dermatología Cosmética",
-    descripcion: "Procedimientos especializados para tratar manchas, cicatrices y mejorar la textura de tu piel.",
-    icon: "💎",
+    descripcion:
+      "Procedimientos especializados para tratar manchas, cicatrices y mejorar la textura de tu piel.",
+    icon: FaGem,
   },
   {
     id: 3,
     titulo: "Tratamientos Corporales",
-    descripcion: "Soluciones integrales para el cuidado de tu piel corporal, contorneo y rejuvenecimiento.",
-    icon: "🌸",
+    descripcion:
+      "Soluciones integrales para el cuidado de tu piel corporal, contorneo y rejuvenecimiento.",
+    icon: FaSpa,
   },
   {
     id: 4,
     titulo: "Peeling Químico",
-    descripcion: "Renovación profunda de la piel para un aspecto luminoso y uniforme.",
-    icon: "✨",
+    descripcion:
+      "Renovación profunda de la piel para un aspecto luminoso y uniforme.",
+    icon: FaFire,
   },
   {
     id: 5,
     titulo: "Rellenos y Botox",
-    descripcion: "Procedimientos estéticos para suavizar líneas de expresión y realzar tu belleza natural.",
-    icon: "💫",
+    descripcion:
+      "Procedimientos estéticos para suavizar líneas de expresión y realzar tu belleza natural.",
+    icon: FaSyringe,
   },
   {
     id: 6,
     titulo: "Láser Dermatológico",
-    descripcion: "Tecnología láser avanzada para rejuvenecimiento, eliminación de manchas y más.",
-    icon: "⚡",
+    descripcion:
+      "Tecnología láser avanzada para rejuvenecimiento, eliminación de manchas y más.",
+    icon: FaBolt,
   },
 ];
 
@@ -45,17 +59,20 @@ const trabajosDestacados = [
   {
     id: 1,
     titulo: "Rejuvenecimiento Facial",
-    imagen: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=800&q=80",
+    imagen:
+      "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=800&q=80",
   },
   {
     id: 2,
     titulo: "Tratamiento de Acné",
-    imagen: "https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?w=800&q=80",
+    imagen:
+      "https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?w=800&q=80",
   },
   {
     id: 3,
     titulo: "Hidratación Profunda",
-    imagen: "https://images.unsplash.com/photo-1596178065887-1198b6148b2b?w=800&q=80",
+    imagen:
+      "https://images.unsplash.com/photo-1596178065887-1198b6148b2b?w=800&q=80",
   },
 ];
 
@@ -84,7 +101,8 @@ export default function Home() {
             Realza tu belleza natural
           </h1>
           <p className="text-[clamp(1rem,2vw,1.3rem)] text-[#6b6b6b] leading-relaxed max-w-2xl mx-auto mb-10">
-            Tratamientos dermatológicos personalizados con tecnología de vanguardia para el cuidado integral de tu piel
+            Tratamientos dermatológicos personalizados con tecnología de
+            vanguardia para el cuidado integral de tu piel
           </p>
           <motion.div
             initial={{ opacity: 0 }}
@@ -106,7 +124,7 @@ export default function Home() {
             </Link>
           </motion.div>
         </motion.div>
-        
+
         {/* Decorative elements */}
         <div className="absolute top-20 right-10 w-72 h-72 bg-[#d4b5a0]/20 rounded-full blur-3xl"></div>
         <div className="absolute bottom-20 left-10 w-96 h-96 bg-[#a0826d]/10 rounded-full blur-3xl"></div>
@@ -182,25 +200,30 @@ export default function Home() {
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {servicios.map((servicio, index) => (
-              <motion.div
-                key={servicio.id}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1, duration: 0.5 }}
-                viewport={{ once: true }}
-                whileHover={{ y: -8, transition: { duration: 0.3 } }}
-                className="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-shadow duration-300 border border-[#a0826d]/10"
-              >
-                <div className="text-4xl mb-4">{servicio.icon}</div>
-                <h3 className="text-xl font-medium text-[#2d2d2d] mb-3">
-                  {servicio.titulo}
-                </h3>
-                <p className="text-[#6b6b6b] leading-relaxed text-sm">
-                  {servicio.descripcion}
-                </p>
-              </motion.div>
-            ))}
+            {servicios.map((servicio, index) => {
+              const IconComponent = servicio.icon;
+              return (
+                <motion.div
+                  key={servicio.id}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1, duration: 0.5 }}
+                  viewport={{ once: true }}
+                  whileHover={{ y: -8, transition: { duration: 0.3 } }}
+                  className="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-shadow duration-300 border border-[#a0826d]/10"
+                >
+                  <div className="text-[#a0826d] text-4xl mb-4">
+                    <IconComponent />
+                  </div>
+                  <h3 className="text-xl font-medium text-[#2d2d2d] mb-3">
+                    {servicio.titulo}
+                  </h3>
+                  <p className="text-[#6b6b6b] leading-relaxed text-sm">
+                    {servicio.descripcion}
+                  </p>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -218,7 +241,8 @@ export default function Home() {
             Agenda tu consulta
           </h2>
           <p className="text-lg mb-10 opacity-90 leading-relaxed">
-            Comienza tu camino hacia una piel saludable y radiante. Estoy aquí para ayudarte a alcanzar tus objetivos de belleza y bienestar.
+            Comienza tu camino hacia una piel saludable y radiante. Estoy aquí
+            para ayudarte a alcanzar tus objetivos de belleza y bienestar.
           </p>
           <Link
             href="/nosotros"

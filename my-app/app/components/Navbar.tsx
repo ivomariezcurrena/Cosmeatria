@@ -15,7 +15,7 @@ export default function Navbar() {
             href="/"
             className="text-xl md:text-2xl font-light text-[#2d2d2d] no-underline hover:text-[#a0826d] transition-colors tracking-tight"
           >
-            Andrea Hernandez
+            Andrea Hernandez Zdravcoff
           </Link>
 
           {/* Desktop Navigation */}
@@ -92,18 +92,11 @@ export default function Navbar() {
             Inicio
           </Link>
           <Link
-            href="#servicios"
+            href="/productos"
             onClick={() => setMenuOpen(false)}
             className="text-base font-normal text-[#2d2d2d] no-underline hover:text-[#a0826d] transition-colors py-2"
           >
             Servicios
-          </Link>
-          <Link
-            href="#trabajos"
-            onClick={() => setMenuOpen(false)}
-            className="text-base font-normal text-[#2d2d2d] no-underline hover:text-[#a0826d] transition-colors py-2"
-          >
-            Portafolio
           </Link>
           <Link
             href="/nosotros"
@@ -113,7 +106,7 @@ export default function Navbar() {
             Acerca de
           </Link>
           <Link
-            href="https://wa.me/5491165874209"
+            href="https://wa.me/5492805058054"
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => setMenuOpen(false)}
