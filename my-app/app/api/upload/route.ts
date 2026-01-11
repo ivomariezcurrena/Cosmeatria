@@ -8,6 +8,10 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
+if (!process.env.CLOUDINARY_CLOUD_NAME || !process.env.CLOUDINARY_API_KEY || !process.env.CLOUDINARY_API_SECRET) {
+  console.warn("Cloudinary env vars missing or incomplete. Check CLOUDINARY_CLOUD_NAME, CLOUDINARY_API_KEY and CLOUDINARY_API_SECRET.");
+}
+
 export async function POST(req: Request) {
   try {
     const formData = await req.formData();
@@ -54,8 +58,15 @@ export async function POST(req: Request) {
             ],
           },
           (error, result) => {
-            if (error) reject(error);
-            else resolve(result);
+            if (error) {
+              try {
+                const errObj = JSON.parse(JSON.stringify(error, Object.getOwnPropertyNames(error)));
+                console.error("Cloudinary upload error object:", errObj);
+              } catch (e) {
+                console.error("Cloudinary upload error (could not serialize):", error);
+              }
+              reject(error);
+            } else resolve(result);
           }
         )
         .end(buffer);
@@ -70,8 +81,14 @@ export async function POST(req: Request) {
     });
   } catch (error) {
     console.error("Error al subir imagen:", error);
+    let detail: string;
+    try {
+      detail = typeof error === "object" ? JSON.stringify(error, Object.getOwnPropertyNames(error)) : String(error);
+    } catch (e) {
+      detail = error instanceof Error ? error.message : String(error);
+    }
     return NextResponse.json(
-      { error: "Error al subir la imagen" },
+      { error: "Error al subir la imagen", detail },
       { status: 500 }
     );
   }

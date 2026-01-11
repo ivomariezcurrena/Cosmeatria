@@ -1,2 +1,20 @@
 @import "tailwindcss";
 
+:root {
+  --color-primary: #a0826d;
+  --color-primary-dark: #8b6f5e;
+  --color-secondary: #2d2d2d;
+  --color-text: #6b6b6b;
+  --color-bg: #faf9f7;
+  --color-surface: #ffffff;
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
+  color: var(--color-secondary);
+  background-color: var(--color-bg);
+}

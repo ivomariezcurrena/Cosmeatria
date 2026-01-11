@@ -32,8 +32,9 @@ export async function GET(req: Request) {
     });
   } catch (error) {
     console.error("Error en GET /api/productos:", error);
+    const message = error instanceof Error ? error.message : String(error);
     return NextResponse.json(
-      { error: "Error al obtener productos" },
+      { error: "Error al obtener productos", detail: message },
       { status: 500 }
     );
   }
